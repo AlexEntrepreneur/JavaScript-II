@@ -89,6 +89,21 @@ let bigDonations = [];
 bigDonations = runners.filter(runner => runner.donation > 200);
 console.log(bigDonations);
 
-// Problem 2
+// Problem 2 - Sort out all of the runners by company name
+let companySorted = [];
+companySorted = runners.sort(function (runnerA, runnerB) {
+  let runnerCompanyA = runnerA.company_name.toLowerCase();
+  let runnerCompanyB = runnerB.company_name.toLowerCase();
+  
+  if (runnerCompanyA < runnerCompanyB) {
+    return -1;
+  }
+  if (runnerCompanyA > runnerCompanyB) {
+    return 1;
+  }
+  // If company names are equal:
+  return 0;
+});
+console.log(companySorted);
 
 // Problem 3
