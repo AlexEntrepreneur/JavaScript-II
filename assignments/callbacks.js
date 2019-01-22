@@ -34,12 +34,22 @@ function last(arr, cb) {
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x + y);
+  if (typeof x === 'number' && typeof y === 'number') {
+    return cb(x + y);
+  }
+  else {
+    return cb(`${sumNums.name}: Please enter a number`);
+  }
 }
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x * y);
+  if (typeof x === 'number' && typeof y === 'number') {
+    return cb(x * y);
+  }
+  else {
+    return cb(`${multiplyNums.name}: Please enter a number`);
+  }
 }
 
 function contains(item, list, cb) {
