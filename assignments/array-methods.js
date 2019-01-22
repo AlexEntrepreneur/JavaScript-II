@@ -94,7 +94,7 @@ let companySorted = [];
 companySorted = runners.sort(function (runnerA, runnerB) {
   let runnerCompanyA = runnerA.company_name.toLowerCase();
   let runnerCompanyB = runnerB.company_name.toLowerCase();
-  
+
   if (runnerCompanyA < runnerCompanyB) {
     return -1;
   }
@@ -106,4 +106,15 @@ companySorted = runners.sort(function (runnerA, runnerB) {
 });
 console.log(companySorted);
 
-// Problem 3
+// Problem 3 - Find people from who are from the same company
+let commonCompanyRunners = [];
+
+companyNameMatch = companySorted.reduce(function(previousRunner, currentRunner) {
+  if (previousRunner.company_name === currentRunner.company_name) {
+    commonCompanyRunners.push(`${previousRunner.company_name}: ${previousRunner.first_name} ${previousRunner.last_name}`);
+    commonCompanyRunners.push(`${currentRunner.company_name}: ${currentRunner.first_name} ${currentRunner.last_name}`);
+  }
+  return currentRunner;
+});
+
+console.log(commonCompanyRunners);
