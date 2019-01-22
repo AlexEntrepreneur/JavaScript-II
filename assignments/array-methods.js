@@ -90,8 +90,8 @@ bigDonations = runners.filter(runner => runner.donation > 200);
 console.log(bigDonations);
 
 // Problem 2 - Sort out all of the runners by company name
-let companySorted = [];
-companySorted = runners.sort(function (runnerA, runnerB) {
+let companySortedRunners = Array.from(runners);
+companySortedRunners.sort(function (runnerA, runnerB) {
   let runnerCompanyA = runnerA.company_name.toLowerCase();
   let runnerCompanyB = runnerB.company_name.toLowerCase();
 
@@ -104,12 +104,12 @@ companySorted = runners.sort(function (runnerA, runnerB) {
   // If company names are equal:
   return 0;
 });
-console.log(companySorted);
+console.log(companySortedRunners);
 
 // Problem 3 - Find people from who are from the same company
 let commonCompanyRunners = [];
 
-companyNameMatch = companySorted.reduce(function(previousRunner, currentRunner) {
+companyNameMatch = companySortedRunners.reduce(function(previousRunner, currentRunner) {
   if (previousRunner.company_name === currentRunner.company_name) {
     commonCompanyRunners.push(`${previousRunner.company_name}: ${previousRunner.first_name} ${previousRunner.last_name}`);
     commonCompanyRunners.push(`${currentRunner.company_name}: ${currentRunner.first_name} ${currentRunner.last_name}`);
